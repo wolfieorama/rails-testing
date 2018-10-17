@@ -1,6 +1,15 @@
 FactoryGirl.define do        
     factory :user do
-        name 'John'
-        sequence(:email, 10) { |n| "user#{n}@gmail.com"}
+
+        transient do
+            upcased  true
+        end
+
+        name Faker::Name.name
+        email { Faker::Internet.email(name) }
+
+        after(:build) do |user, evaluator|
+            user.name.upcase! if evaluator.upcased
+        end
     end
 end 

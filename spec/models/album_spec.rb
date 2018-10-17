@@ -12,9 +12,10 @@ require 'rails_helper'
 
 RSpec.describe Album do
 
-  let(:subject) {Album.new}
+  subject {build(:album)}
 
   it "is not valid without a title" do
+    subject.title = ''
     expect(subject).not_to be_valid
   end 
 
@@ -24,7 +25,6 @@ RSpec.describe Album do
   end 
 
   it "is valid with all proper data" do
-    subject.title = "a" * 99
     expect(subject).to be_valid
   end
 end

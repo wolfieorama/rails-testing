@@ -1,5 +1,5 @@
-FactoryGirl.define :albums do
+FactoryGirl.define do
     factory :album do
-        title 'Mike and Mech'
+        title Faker::Book.title
     end
 end
