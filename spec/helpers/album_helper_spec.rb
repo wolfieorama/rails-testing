@@ -8,7 +8,6 @@ RSpec.describe "AlbumHelper" do
         it "should specially mark popular albums"  do
             popular_album.popular = true
             result = helper.with_status(popular_album)
-            print(result)
             expect(result).to have_selector("small", text: "hot!")
         end
 

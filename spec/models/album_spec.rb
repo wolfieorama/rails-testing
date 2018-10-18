@@ -11,10 +11,22 @@
 require 'rails_helper'
 
 RSpec.describe Album do
+  subject {create(:album)}
 
-  subject {build(:album)}
+  it { is_expected.to respond_to(:users) }
+  it { is_expected.to respond_to(:cart_items) }
+
+
+  context "scope popular" do
+    it "is expected to return an array of len 1" do
+      subject.popular = true
+      subject.save
+      expect(Album.popular.size).to eq(1)
+    end 
+  end
 
   context "validation" do
+
     it "is not valid without a title" do
       subject.title = ''
       expect(subject).not_to be_valid
