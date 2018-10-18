@@ -14,17 +14,19 @@ RSpec.describe Album do
 
   subject {build(:album)}
 
-  it "is not valid without a title" do
-    subject.title = ''
-    expect(subject).not_to be_valid
-  end 
+  context "validation" do
+    it "is not valid without a title" do
+      subject.title = ''
+      expect(subject).not_to be_valid
+    end 
 
-  it "is not valid if the subject titls is over 100 letter" do
-    subject.title = "a" * 101
-    expect(subject).not_to be_valid
-  end 
+    it "is not valid if the subject titls is over 100 letter" do
+      subject.title = "a" * 101
+      expect(subject).not_to be_valid
+    end 
 
-  it "is valid with all proper data" do
-    expect(subject).to be_valid
-  end
+    it "is valid with all proper data" do
+      expect(subject).to be_valid
+    end
+  end 
 end

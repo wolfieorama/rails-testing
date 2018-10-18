@@ -48,6 +48,7 @@ group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'rails-controller-testing'
 end
 
 group :development do
